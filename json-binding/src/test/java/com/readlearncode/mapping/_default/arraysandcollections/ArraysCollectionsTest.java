@@ -14,7 +14,6 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
  */
 public class ArraysCollectionsTest {
 
-
     @Test
     public void givenArrayAndCollections_shouldSerialise() {
 
