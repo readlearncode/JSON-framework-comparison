@@ -7,6 +7,57 @@
     <groupId>com.readlearncode</groupId>
     <artifactId>boon</artifactId>
     <version>1.0</version>
+    <packaging>war</packaging>
 
+    <name>boon</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
+        <java.version>1.8</java.version>
+        <junit.version>4.12</junit.version>
+        <assertj-core.version>3.8.0</assertj-core.version>
+        <boon.version>0.34</boon.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>io.fastjson</groupId>
+            <artifactId>boon</artifactId>
+            <version>${boon.version}</version>
+        </dependency>
+
+        <!-- Test Dependencies -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj-core.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>boon</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
