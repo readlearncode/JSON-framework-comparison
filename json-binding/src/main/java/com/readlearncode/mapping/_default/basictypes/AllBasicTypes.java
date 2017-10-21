@@ -17,6 +17,7 @@ public class AllBasicTypes {
     private long longPrimitive;
     private float floatPrimitive;
     private double doublePrimitive;
+    private boolean aBoolean;
 
     private Byte byteWrapper = 0;
     private Short shortWrapper = 0;
@@ -25,29 +26,13 @@ public class AllBasicTypes {
     private Long longWrapper = 0L;
     private Float floatWrapper = 0F;
     private Double doubleWrapper = 0D;
+    private Boolean booleanWrapper = false;
 
     private String string = "Hello World";
 
     public AllBasicTypes() {
     }
 
-    public AllBasicTypes(byte bytePrimitive, short shortPrimitive, char charPrimitive, int intPrimitive, long longPrimitive, float floatPrimitive, double doublePrimitive, Byte byteWrapper, Short shortWrapper, Character charWrapper, Integer intWrapper, Long longWrapper, Float floatWrapper, Double doubleWrapper, String string) {
-        this.bytePrimitive = bytePrimitive;
-        this.shortPrimitive = shortPrimitive;
-        this.charPrimitive = charPrimitive;
-        this.intPrimitive = intPrimitive;
-        this.longPrimitive = longPrimitive;
-        this.floatPrimitive = floatPrimitive;
-        this.doublePrimitive = doublePrimitive;
-        this.byteWrapper = byteWrapper;
-        this.shortWrapper = shortWrapper;
-        this.charWrapper = charWrapper;
-        this.intWrapper = intWrapper;
-        this.longWrapper = longWrapper;
-        this.floatWrapper = floatWrapper;
-        this.doubleWrapper = doubleWrapper;
-        this.string = string;
-    }
 
     public byte getBytePrimitive() {
         return bytePrimitive;
@@ -169,31 +154,20 @@ public class AllBasicTypes {
         this.string = string;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        AllBasicTypes that = (AllBasicTypes) o;
-        return bytePrimitive == that.bytePrimitive &&
-                shortPrimitive == that.shortPrimitive &&
-                charPrimitive == that.charPrimitive &&
-                intPrimitive == that.intPrimitive &&
-                longPrimitive == that.longPrimitive &&
-                Float.compare(that.floatPrimitive, floatPrimitive) == 0 &&
-                Double.compare(that.doublePrimitive, doublePrimitive) == 0 &&
-                Objects.equals(byteWrapper, that.byteWrapper) &&
-                Objects.equals(shortWrapper, that.shortWrapper) &&
-                Objects.equals(charWrapper, that.charWrapper) &&
-                Objects.equals(intWrapper, that.intWrapper) &&
-                Objects.equals(longWrapper, that.longWrapper) &&
-                Objects.equals(floatWrapper, that.floatWrapper) &&
-                Objects.equals(doubleWrapper, that.doubleWrapper) &&
-                Objects.equals(string, that.string);
+    public boolean isaBoolean() {
+        return aBoolean;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(bytePrimitive, shortPrimitive, charPrimitive, intPrimitive, longPrimitive, floatPrimitive, doublePrimitive, byteWrapper, shortWrapper, charWrapper, intWrapper, longWrapper, floatWrapper, doubleWrapper, string);
+    public void setaBoolean(boolean aBoolean) {
+        this.aBoolean = aBoolean;
+    }
+
+    public Boolean getBooleanWrapper() {
+        return booleanWrapper;
+    }
+
+    public void setBooleanWrapper(Boolean booleanWrapper) {
+        this.booleanWrapper = booleanWrapper;
     }
 
     @Override
@@ -206,6 +180,7 @@ public class AllBasicTypes {
                 ", longPrimitive=" + longPrimitive +
                 ", floatPrimitive=" + floatPrimitive +
                 ", doublePrimitive=" + doublePrimitive +
+                ", aBoolean=" + aBoolean +
                 ", byteWrapper=" + byteWrapper +
                 ", shortWrapper=" + shortWrapper +
                 ", charWrapper=" + charWrapper +
@@ -213,7 +188,37 @@ public class AllBasicTypes {
                 ", longWrapper=" + longWrapper +
                 ", floatWrapper=" + floatWrapper +
                 ", doubleWrapper=" + doubleWrapper +
+                ", booleanWrapper=" + booleanWrapper +
                 ", string='" + string + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AllBasicTypes that = (AllBasicTypes) o;
+        return bytePrimitive == that.bytePrimitive &&
+                shortPrimitive == that.shortPrimitive &&
+                charPrimitive == that.charPrimitive &&
+                intPrimitive == that.intPrimitive &&
+                longPrimitive == that.longPrimitive &&
+                Float.compare(that.floatPrimitive, floatPrimitive) == 0 &&
+                Double.compare(that.doublePrimitive, doublePrimitive) == 0 &&
+                aBoolean == that.aBoolean &&
+                Objects.equals(byteWrapper, that.byteWrapper) &&
+                Objects.equals(shortWrapper, that.shortWrapper) &&
+                Objects.equals(charWrapper, that.charWrapper) &&
+                Objects.equals(intWrapper, that.intWrapper) &&
+                Objects.equals(longWrapper, that.longWrapper) &&
+                Objects.equals(floatWrapper, that.floatWrapper) &&
+                Objects.equals(doubleWrapper, that.doubleWrapper) &&
+                Objects.equals(booleanWrapper, that.booleanWrapper) &&
+                Objects.equals(string, that.string);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bytePrimitive, shortPrimitive, charPrimitive, intPrimitive, longPrimitive, floatPrimitive, doublePrimitive, aBoolean, byteWrapper, shortWrapper, charWrapper, intWrapper, longWrapper, floatWrapper, doubleWrapper, booleanWrapper, string);
     }
 }

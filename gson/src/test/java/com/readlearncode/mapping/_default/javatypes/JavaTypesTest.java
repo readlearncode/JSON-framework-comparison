@@ -46,8 +46,7 @@ public class JavaTypesTest {
          */
 
         String expectedJson = "{\"bigInteger\":10,\"bigDecimal\":10,\"url\":\"http://www.readlearncode.com\",\"uri\":\"http://www.readlearncode.com\",\"stringOptional\":{\"value\":\"Hello World\"},\"optionalInt\":{\"isPresent\":true,\"value\":10},\"optionalLong\":{\"isPresent\":true,\"value\":10},\"optionalDouble\":{\"isPresent\":true,\"value\":10.0},\"atomicInteger\":10,\"longAdder\":{}}";
-        JavaTypes javaTypes = new JavaTypes();
-        String actualJson = new GsonBuilder().create().toJson(javaTypes);
+        String actualJson = new GsonBuilder().create().toJson(new JavaTypes());
         assertThat(actualJson).isEqualTo(expectedJson);
     }
 
