@@ -1,8 +1,8 @@
 package com.readlearncode.mapping._default.datetypes;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
-
-import javax.json.bind.JsonbBuilder;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
@@ -15,17 +15,17 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 public class CalendarTypeTest {
 
     @Test
-    public void givenCalendarType_shouldSerialise() {
+    public void givenCalendarType_shouldSerialise() throws JsonProcessingException {
 
         /*
             {
-              "calendar1": "2018-01-25Z",
-              "calendar2": "2018-01-25T00:00:00Z[Europe/London]"
+              "calendar1": 1516838400000,
+              "calendar2": 1516838400000
             }
          */
 
-        String expectedJson = "{\"calendar1\":\"2018-01-25Z\",\"calendar2\":\"2018-01-25T00:00:00Z[Europe/London]\"}";
-        String actualJson = JsonbBuilder.create().toJson(new CalendarType());
+        String expectedJson = "{\"calendar1\":1516838400000,\"calendar2\":1516838400000}";
+        String actualJson = new ObjectMapper().writeValueAsString(new CalendarType());
         assertThat(actualJson).isEqualTo(expectedJson);
     }
 

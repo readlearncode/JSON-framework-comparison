@@ -1,7 +1,6 @@
 package com.readlearncode.mapping._default.datetypes;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.GsonBuilder;
 import org.junit.Test;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
@@ -15,17 +14,31 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 public class CalendarTypeTest {
 
     @Test
-    public void givenCalendarType_shouldSerialise() throws JsonProcessingException {
+    public void givenCalendarType_shouldSerialise()  {
 
         /*
             {
-              "calendar1": 1516838400000,
-              "calendar2": 1516838400000
+              "calendar1": {
+                "year": 2018,
+                "month": 0,
+                "dayOfMonth": 25,
+                "hourOfDay": 0,
+                "minute": 0,
+                "second": 0
+              },
+              "calendar2": {
+                "year": 2018,
+                "month": 0,
+                "dayOfMonth": 25,
+                "hourOfDay": 0,
+                "minute": 0,
+                "second": 0
+              }
             }
          */
 
-        String expectedJson = "{\"calendar1\":1516838400000,\"calendar2\":1516838400000}";
-        String actualJson = new ObjectMapper().writeValueAsString(new CalendarType());
+        String expectedJson = "{\"calendar1\":{\"year\":2018,\"month\":0,\"dayOfMonth\":25,\"hourOfDay\":0,\"minute\":0,\"second\":0},\"calendar2\":{\"year\":2018,\"month\":0,\"dayOfMonth\":25,\"hourOfDay\":0,\"minute\":0,\"second\":0}}";
+        String actualJson = new GsonBuilder().create().toJson(new CalendarType());
         assertThat(actualJson).isEqualTo(expectedJson);
     }
 
