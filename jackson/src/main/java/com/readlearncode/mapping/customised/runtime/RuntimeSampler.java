@@ -1,12 +1,14 @@
 package com.readlearncode.mapping.customised.runtime;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.readlearncode.mapping._default.javatypes.JavaTypes;
 
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
+import java.util.Locale;
 
 /**
  * Source code github.com/readlearncode
@@ -16,10 +18,24 @@ import java.net.URISyntaxException;
  */
 public class RuntimeSampler {
 
-    public static void main(String... args) throws JsonProcessingException, MalformedURLException, URISyntaxException {
-        ObjectMapper objectMapper = new ObjectMapper().setPropertyNamingStrategy(PropertyNamingStrategy.LOWER_CAMEL_CASE);
-        String actualJson = objectMapper.writeValueAsString(new JavaTypes());
-        System.out.print(actualJson);
+    public ObjectMapper allConfigurations() {
+        return new ObjectMapper()
+                // Property visibility
+                .setDefaultPropertyInclusion(JsonInclude.Include.ALWAYS)
+                .setDefaultVisibility(JsonAutoDetect.Value.construct(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.PROTECTED_AND_PUBLIC))
+                .configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true)
+
+                // Property naming and order
+                .setPropertyNamingStrategy(PropertyNamingStrategy.LOWER_CAMEL_CASE)
+
+                // Customised de/serializers
+              //  .setSerializerFactory()
+
+                // Formats, locals, encoding, binary data
+                //.setDateFormat()
+                .setDefaultPrettyPrinter(new DefaultPrettyPrinter())
+                .setLocale(Locale.CANADA);
+
     }
 
 }
