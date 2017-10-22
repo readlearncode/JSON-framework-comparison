@@ -18,27 +18,28 @@ public class AllBasicTypesTest {
     public void givenDefaultValues_shouldSerialise() {
 
         /*
-            {
-              "bytePrimitive": 0,
-              "byteWrapper": 0,
-              "charPrimitive": "\u0000",
-              "charWrapper": "\u0000",
-              "doublePrimitive": 0,
-              "doubleWrapper": 0,
-              "floatPrimitive": 0,
-              "floatWrapper": 0,
-              "intPrimitive": 0,
-              "intWrapper": 0,
-              "longPrimitive": 0,
-              "longWrapper": 0,
-              "shortPrimitive": 0,
-              "shortWrapper": 0,
-              "string": "Hello World"
-            }
+        {
+          "aBoolean": false,
+          "booleanWrapper": false,
+          "bytePrimitive": 0,
+          "byteWrapper": 0,
+          "charPrimitive": "\u0000",
+          "charWrapper": "\u0000",
+          "doublePrimitive": 0,
+          "doubleWrapper": 0,
+          "floatPrimitive": 0,
+          "floatWrapper": 0,
+          "intPrimitive": 0,
+          "intWrapper": 0,
+          "longPrimitive": 0,
+          "longWrapper": 0,
+          "shortPrimitive": 0,
+          "shortWrapper": 0,
+          "string": "Hello World"
+        }
          */
-        String expectedJson = "{\"bytePrimitive\":0,\"byteWrapper\":0,\"charPrimitive\":\"\\u0000\",\"charWrapper\":\"\\u0000\",\"doublePrimitive\":0.0,\"doubleWrapper\":0.0,\"floatPrimitive\":0.0,\"floatWrapper\":0.0,\"intPrimitive\":0,\"intWrapper\":0,\"longPrimitive\":0,\"longWrapper\":0,\"shortPrimitive\":0,\"shortWrapper\":0,\"string\":\"Hello World\"}";
-        AllBasicTypes allBasicTypes = new AllBasicTypes();
-        String actualJson = JsonbBuilder.create().toJson(allBasicTypes);
+        String expectedJson = "{\"aBoolean\":false,\"booleanWrapper\":false,\"bytePrimitive\":0,\"byteWrapper\":0,\"charPrimitive\":\"\\u0000\",\"charWrapper\":\"\\u0000\",\"doublePrimitive\":0.0,\"doubleWrapper\":0.0,\"floatPrimitive\":0.0,\"floatWrapper\":0.0,\"intPrimitive\":0,\"intWrapper\":0,\"longPrimitive\":0,\"longWrapper\":0,\"shortPrimitive\":0,\"shortWrapper\":0,\"string\":\"Hello World\"}";
+        String actualJson = JsonbBuilder.create().toJson(new AllBasicTypes());
         assertThat(actualJson).isEqualTo(expectedJson);
     }
 

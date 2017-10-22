@@ -37,8 +37,7 @@ public class AllBasicTypesTest {
          */
 
         String expectedJson = "{\"bytePrimitive\":0,\"shortPrimitive\":0,\"charPrimitive\":\"\\u0000\",\"intPrimitive\":0,\"longPrimitive\":0,\"floatPrimitive\":0.0,\"doublePrimitive\":0.0,\"byteWrapper\":0,\"shortWrapper\":0,\"charWrapper\":\"\\u0000\",\"intWrapper\":0,\"longWrapper\":0,\"floatWrapper\":0.0,\"doubleWrapper\":0.0,\"string\":\"Hello World\"}";
-        AllBasicTypes allBasicTypes = new AllBasicTypes();
-        String actualJson = new GsonBuilder().create().toJson(allBasicTypes);
+        String actualJson = new GsonBuilder().create().toJson(new AllBasicTypes());
         assertThat(actualJson).isEqualTo(expectedJson);
     }
 

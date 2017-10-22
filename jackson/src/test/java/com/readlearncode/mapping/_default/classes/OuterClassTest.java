@@ -1,8 +1,8 @@
 package com.readlearncode.mapping._default.classes;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
-
-import javax.json.bind.JsonbBuilder;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
@@ -15,14 +15,14 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 public class OuterClassTest {
 
     @Test
-    public void givenNestedClasses_shouldSerialise() {
+    public void givenNestedClasses_shouldSerialise() throws JsonProcessingException {
         /*
-            {
-              "name": "OuterClass"
-            }
+        {
+          "name": "OuterClass"
+        }
          */
         String expectedJson = "{\"name\":\"OuterClass\"}";
-        String actualJson = JsonbBuilder.create().toJson(new OuterClass());
+        String actualJson = new ObjectMapper().writeValueAsString(new OuterClass());
         assertThat(actualJson).isEqualTo(expectedJson);
     }
 

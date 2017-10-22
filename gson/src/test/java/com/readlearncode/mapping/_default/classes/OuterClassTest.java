@@ -1,8 +1,7 @@
 package com.readlearncode.mapping._default.classes;
 
+import com.google.gson.GsonBuilder;
 import org.junit.Test;
-
-import javax.json.bind.JsonbBuilder;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
@@ -17,12 +16,12 @@ public class OuterClassTest {
     @Test
     public void givenNestedClasses_shouldSerialise() {
         /*
-            {
-              "name": "OuterClass"
-            }
+        {
+          "name": "OuterClass"
+        }
          */
         String expectedJson = "{\"name\":\"OuterClass\"}";
-        String actualJson = JsonbBuilder.create().toJson(new OuterClass());
+        String actualJson = new GsonBuilder().create().toJson(new OuterClass());
         assertThat(actualJson).isEqualTo(expectedJson);
     }
 

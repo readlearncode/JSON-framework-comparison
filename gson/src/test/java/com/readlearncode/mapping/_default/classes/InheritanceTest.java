@@ -1,8 +1,7 @@
 package com.readlearncode.mapping._default.classes;
 
+import com.google.gson.GsonBuilder;
 import org.junit.Test;
-
-import javax.json.bind.JsonbBuilder;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
@@ -15,15 +14,15 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 public class InheritanceTest {
 
     @Test
-    public void givenInheritance_shouldSerialise(){
+    public void givenInheritance_shouldSerialise() {
         /*
             {
-              "parentName": "Parent",
-              "child": "Child"
+              "child": "Child",
+              "parentName": "Parent"
             }
          */
-        String expectedJson = "{\"parentName\":\"Parent\",\"child\":\"Child\"}";
-        String actualJson = JsonbBuilder.create().toJson(new Child());
+        String expectedJson = "{\"child\":\"Child\",\"parentName\":\"Parent\"}";
+        String actualJson = new GsonBuilder().create().toJson(new Child());
         assertThat(actualJson).isEqualTo(expectedJson);
     }
 

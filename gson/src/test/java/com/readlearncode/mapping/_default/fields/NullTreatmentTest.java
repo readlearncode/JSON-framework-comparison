@@ -1,8 +1,7 @@
 package com.readlearncode.mapping._default.fields;
 
+import com.google.gson.GsonBuilder;
 import org.junit.Test;
-
-import javax.json.bind.JsonbBuilder;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
@@ -17,14 +16,15 @@ public class NullTreatmentTest {
     @Test
     public void givenNulls_shouldSerialise() {
         /*
-        {
-          "stringList": [
-            null
-          ]
-        }
+            {
+              "objectOptional": {},
+              "stringList": [
+                null
+              ]
+            }
          */
-        String expectedJson = "{\"stringList\":[null]}";
-        String actualJson = JsonbBuilder.create().toJson(new NullTreatment());
+        String expectedJson = "{\"objectOptional\":{},\"stringList\":[null]}";
+        String actualJson = new GsonBuilder().create().toJson(new NullTreatment());
         assertThat(actualJson).isEqualTo(expectedJson);
     }
 

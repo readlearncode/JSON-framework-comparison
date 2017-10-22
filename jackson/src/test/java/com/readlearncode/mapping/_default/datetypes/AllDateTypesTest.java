@@ -31,20 +31,20 @@ public class AllDateTypesTest {
             {
               "year": 2017,
               "month": "DECEMBER",
-              "era": "CE",
+              "chronology": {
+                "id": "ISO",
+                "calendarType": "iso8601"
+              },
               "dayOfMonth": 25,
               "dayOfWeek": "MONDAY",
               "dayOfYear": 359,
               "leapYear": false,
               "monthValue": 12,
-              "chronology": {
-                "id": "ISO",
-                "calendarType": "iso8601"
-              }
+              "era": "CE"
             }
          */
 
-        String expectedJson = "{\"year\":2017,\"month\":\"DECEMBER\",\"era\":\"CE\",\"dayOfMonth\":25,\"dayOfWeek\":\"MONDAY\",\"dayOfYear\":359,\"leapYear\":false,\"monthValue\":12,\"chronology\":{\"id\":\"ISO\",\"calendarType\":\"iso8601\"}}";
+        String expectedJson = "{\"year\":2017,\"month\":\"DECEMBER\",\"chronology\":{\"id\":\"ISO\",\"calendarType\":\"iso8601\"},\"dayOfMonth\":25,\"dayOfWeek\":\"MONDAY\",\"dayOfYear\":359,\"leapYear\":false,\"monthValue\":12,\"era\":\"CE\"}";
         String actualJson = new ObjectMapper().writeValueAsString(new AllDateTypes().getLocalDate());
         assertThat(actualJson).isEqualTo(expectedJson);
     }
@@ -69,10 +69,12 @@ public class AllDateTypesTest {
               }
             }
          */
-        String expectedJson = "{\"dayOfMonth\":25,\"dayOfWeek\":\"MONDAY\",\"dayOfYear\":359,\"month\":\"DECEMBER\",\"monthValue\":12,\"year\":2017,\"hour\":0,\"minute\":0,\"nano\":0,\"second\":0,\"chronology\":{\"id\":\"ISO\",\"calendarType\":\"iso8601\"}}";
+        String expectedJson = "{\"hour\":0,\"minute\":0,\"nano\":0,\"second\":0,\"dayOfMonth\":25,\"dayOfWeek\":\"MONDAY\",\"dayOfYear\":359,\"month\":\"DECEMBER\",\"monthValue\":12,\"year\":2017,\"chronology\":{\"id\":\"ISO\",\"calendarType\":\"iso8601\"}}";
         String actualJson = new ObjectMapper().writeValueAsString(new AllDateTypes().getLocalDateTime());
         assertThat(actualJson).isEqualTo(expectedJson);
     }
+
+
     @Test
     public void givenLocalTime_shouldSerialize() throws ParseException, JsonProcessingException {
         /*

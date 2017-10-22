@@ -1,8 +1,8 @@
 package com.readlearncode.mapping._default.classes;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
-
-import javax.json.bind.JsonbBuilder;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
@@ -15,15 +15,15 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 public class InheritanceTest {
 
     @Test
-    public void givenInheritance_shouldSerialise(){
+    public void givenInheritance_shouldSerialise() throws JsonProcessingException {
         /*
-            {
-              "parentName": "Parent",
-              "child": "Child"
-            }
+        {
+          "parentName": "Parent",
+          "child": "Child"
+        }
          */
         String expectedJson = "{\"parentName\":\"Parent\",\"child\":\"Child\"}";
-        String actualJson = JsonbBuilder.create().toJson(new Child());
+        String actualJson = new ObjectMapper().writeValueAsString(new Child());
         assertThat(actualJson).isEqualTo(expectedJson);
     }
 
