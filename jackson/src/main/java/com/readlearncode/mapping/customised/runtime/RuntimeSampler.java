@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 
+import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 /**
@@ -32,7 +33,7 @@ public class RuntimeSampler {
               //  .setSerializerFactory()
 
                 // Formats, locals, encoding, binary data
-                //.setDateFormat()
+                .setDateFormat(new SimpleDateFormat("MM/dd/yyyy"))
                 .setDefaultPrettyPrinter(new DefaultPrettyPrinter())
                 .setLocale(Locale.CANADA);
 

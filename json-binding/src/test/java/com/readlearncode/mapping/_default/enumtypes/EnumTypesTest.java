@@ -16,6 +16,12 @@ public class EnumTypesTest {
 
     @Test
     public void givenEnum_shouldSerialise(){
+        /*
+        {
+          "hard": "Hard",
+          "soft": "SOFT"
+        }
+         */
         String expectedJson = "{\"hard\":\"Hard\",\"soft\":\"SOFT\"}";
         String actualJson = JsonbBuilder.create().toJson(new UseEnum());
         assertThat(actualJson).isEqualTo(expectedJson);

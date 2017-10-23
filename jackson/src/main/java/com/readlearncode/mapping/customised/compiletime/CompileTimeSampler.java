@@ -16,7 +16,7 @@ import java.util.Date;
 @JsonSerialize(using = CustomSerializer.class)
 @JsonDeserialize(using = CustomDeserializer.class)
 //@JsonbTypeAdapter(ClassAdapter.class)
-@JsonPropertyOrder(value = {"firstName", "title", "author"},alphabetic = true)
+@JsonPropertyOrder(value = {"firstName", "title", "author"},alphabetic = true)  // @JsonPropertyOrder(alphabetic = true)
 @JsonInclude(JsonInclude.Include.ALWAYS) // @JsonbNillable
 @JsonIgnoreProperties({"transientField"})
 public class CompileTimeSampler {

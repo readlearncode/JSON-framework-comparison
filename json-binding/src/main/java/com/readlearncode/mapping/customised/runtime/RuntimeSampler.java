@@ -41,7 +41,6 @@ public class RuntimeSampler {
                 // Property naming and order
                 .withPropertyNamingStrategy(PropertyNamingStrategy.CASE_INSENSITIVE)
                 .withPropertyOrderStrategy(PropertyOrderStrategy.REVERSE)
-                .setProperty("name", "firstName")
 
                 // Customised de/serializers
                 .withAdapters(new ClassAdapter())

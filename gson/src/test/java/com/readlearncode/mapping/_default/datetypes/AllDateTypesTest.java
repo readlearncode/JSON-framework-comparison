@@ -99,4 +99,19 @@ public class AllDateTypesTest {
         assertThat(actualJson).isEqualTo(expectedJson);
     }
 
+    @Test
+    public void givenLocalDate_shouldSerialize() throws ParseException {
+
+        /*
+            {
+              "year": 2017,
+              "month": 12,
+              "day": 25
+            }
+         */
+
+        String expectedJson = "{\"year\":2017,\"month\":12,\"day\":25}";
+        String actualJson = new GsonBuilder().create().toJson(new AllDateTypes().getLocalDate());
+        assertThat(actualJson).isEqualTo(expectedJson);
+    }
 }

@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
@@ -20,9 +19,10 @@ public class AllDateTypesTest {
     @Test
     public void givenDate_shouldSerialize() throws ParseException, JsonProcessingException {
         String expectedJson = "1514160000000";
-        String actualJson = new ObjectMapper().writeValueAsString(new SimpleDateFormat("dd/MM/yyyy").parse("25/12/2017"));
+        String actualJson = new ObjectMapper().writeValueAsString(new AllDateTypes().getDate());
         assertThat(actualJson).isEqualTo(expectedJson);
     }
+
 
     @Test
     public void givenLocalDate_shouldSerialize() throws ParseException, JsonProcessingException {
@@ -73,7 +73,6 @@ public class AllDateTypesTest {
         String actualJson = new ObjectMapper().writeValueAsString(new AllDateTypes().getLocalDateTime());
         assertThat(actualJson).isEqualTo(expectedJson);
     }
-
 
     @Test
     public void givenLocalTime_shouldSerialize() throws ParseException, JsonProcessingException {

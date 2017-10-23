@@ -25,6 +25,7 @@ public class AllBasicTypesTest {
               "longPrimitive": 0,
               "floatPrimitive": 0,
               "doublePrimitive": 0,
+              "aBoolean": false,
               "byteWrapper": 0,
               "shortWrapper": 0,
               "charWrapper": "\u0000",
@@ -32,11 +33,12 @@ public class AllBasicTypesTest {
               "longWrapper": 0,
               "floatWrapper": 0,
               "doubleWrapper": 0,
+              "booleanWrapper": false,
               "string": "Hello World"
             }
          */
 
-        String expectedJson = "{\"bytePrimitive\":0,\"shortPrimitive\":0,\"charPrimitive\":\"\\u0000\",\"intPrimitive\":0,\"longPrimitive\":0,\"floatPrimitive\":0.0,\"doublePrimitive\":0.0,\"byteWrapper\":0,\"shortWrapper\":0,\"charWrapper\":\"\\u0000\",\"intWrapper\":0,\"longWrapper\":0,\"floatWrapper\":0.0,\"doubleWrapper\":0.0,\"string\":\"Hello World\"}";
+        String expectedJson = "{\"bytePrimitive\":0,\"shortPrimitive\":0,\"charPrimitive\":\"\\u0000\",\"intPrimitive\":0,\"longPrimitive\":0,\"floatPrimitive\":0.0,\"doublePrimitive\":0.0,\"aBoolean\":false,\"byteWrapper\":0,\"shortWrapper\":0,\"charWrapper\":\"\\u0000\",\"intWrapper\":0,\"longWrapper\":0,\"floatWrapper\":0.0,\"doubleWrapper\":0.0,\"booleanWrapper\":false,\"string\":\"Hello World\"}";
         String actualJson = new GsonBuilder().create().toJson(new AllBasicTypes());
         assertThat(actualJson).isEqualTo(expectedJson);
     }
