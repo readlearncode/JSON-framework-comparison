@@ -12,37 +12,27 @@ import java.util.Date;
  * @author Alex Theedom www.readlearncode.com
  * @version 1.0
  */
-//@JsonSerialize(using = CustomSerializer.class)
-//@JsonDeserialize(using = CustomDeserializer.class)
-////@JsonbTypeAdapter(ClassAdapter.class)
-//@JsonPropertyOrder(value = {"firstName", "title", "author"},alphabetic = true)  // @JsonPropertyOrder(alphabetic = true)
-//@JsonInclude(JsonInclude.Include.ALWAYS) // @JsonbNillable
-//@JsonIgnoreProperties({"transientField"})
 public class CompileTimeSampler {
 
-    @Expose // new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create()
+    @Expose
     private String transientField;
 
     @SerializedName("firstName")
     private String name;
 
-    // only configurable via runtime // @JsonInclude(JsonInclude.Include.ALWAYS) // @JsonProperty(nillable = true)
+    // only configurable via runtime
     private String nillable;
 
-    // Have to create a de/serializer // @JsonFormat(pattern = "MM/dd/yyyy", locale = "Locale.ENGLISH")
+    // Have to create a de/serializer
     private Date date;
 
-    //    @JsonbNumberFormat("#.00")
-    // no annotation for number format // @JsonSerialize(using = PriceJsonSerializer.class)
+    // no annotation for number format
     private float amount = 1000;
 
-//    @JsonCreator
     public CompileTimeSampler customCreator() {
         return new CompileTimeSampler();
     }
 
-    //    @JsonbTypeAdapter(FieldAdapter.class)
-//    @JsonSerialize(using = FieldAdapter.class)
     private String adaptableField;
 
 }

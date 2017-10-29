@@ -17,7 +17,7 @@ import java.util.Date;
 @JsonDeserialize(using = CustomDeserializer.class)
 //@JsonbTypeAdapter(ClassAdapter.class)
 @JsonPropertyOrder(value = {"firstName", "title", "author"},alphabetic = true)  // @JsonPropertyOrder(alphabetic = true)
-@JsonInclude(JsonInclude.Include.ALWAYS) // @JsonbNillable
+@JsonInclude(JsonInclude.Include.NON_NULL) // @JsonbNillable
 @JsonIgnoreProperties({"transientField"})
 public class CompileTimeSampler {
 
@@ -27,8 +27,8 @@ public class CompileTimeSampler {
     @JsonProperty("firstName")
     private String name;
 
-    @JsonInclude(JsonInclude.Include.ALWAYS) // @JsonProperty(nillable = true)
-    private String nillable;
+    @JsonInclude(JsonInclude.Include.NON_NULL) // @JsonProperty(nillable = true)
+    private String nillable2;
 
     @JsonFormat(pattern = "MM/dd/yyyy", locale = "Locale.ENGLISH")
     private Date date;

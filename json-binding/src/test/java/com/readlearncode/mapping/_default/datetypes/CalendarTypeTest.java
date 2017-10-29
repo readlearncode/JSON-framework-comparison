@@ -19,12 +19,12 @@ public class CalendarTypeTest {
 
         /*
             {
-              "calendar1": "2018-01-25Z",
-              "calendar2": "2018-01-25T00:00:00Z[Europe/London]"
+              "calendar1": "2017-12-25Z",
+              "calendar2": "2017-12-25T00:00:00Z[Europe/London]"
             }
          */
 
-        String expectedJson = "{\"calendar1\":\"2018-01-25Z\",\"calendar2\":\"2018-01-25T00:00:00Z[Europe/London]\"}";
+        String expectedJson = "{\"calendar1\":\"2017-12-25Z\",\"calendar2\":\"2017-12-25T00:00:00Z[Europe/London]\"}";
         String actualJson = JsonbBuilder.create().toJson(new CalendarType());
         assertThat(actualJson).isEqualTo(expectedJson);
     }

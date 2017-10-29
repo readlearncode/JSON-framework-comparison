@@ -21,7 +21,7 @@ import java.util.Locale;
  */
 public class RuntimeSampler {
 
-    public JsonbConfig allConfigurations() {
+    public static JsonbConfig jsonbConfig() {
         return new JsonbConfig()
 
                 // Property visibility
@@ -55,6 +55,5 @@ public class RuntimeSampler {
                 .withStrictIJSON(true)
                 .withFormatting(true);
     }
-
 
 }

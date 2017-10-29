@@ -4,7 +4,6 @@ import com.google.gson.ExclusionStrategy;
 import com.google.gson.FieldAttributes;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
-import com.readlearncode.mapping._default.basictypes.AllBasicTypes;
 
 import java.lang.reflect.Modifier;
 
@@ -16,12 +15,13 @@ import java.lang.reflect.Modifier;
  */
 public class RuntimeSampler {
 
-    public static void main(String... args){
+    public static GsonBuilder gsonBuilder() {
 
-        String actualJson = new GsonBuilder()
+        return new GsonBuilder()
+
                 // Property visibility
                 .serializeNulls()
-                .setExclusionStrategies(new ExclusionStrategy(){
+                .setExclusionStrategies(new ExclusionStrategy() {
                     @Override
                     public boolean shouldSkipField(FieldAttributes fieldAttributes) {
                         return false;
@@ -39,50 +39,9 @@ public class RuntimeSampler {
                 .setFieldNamingStrategy((field) -> field.getName().toLowerCase())
 
                 // Customised de/serializers
-//                .registerTypeAdapter(String.class, (type) -> type))
 
                 // Formats, locals, encoding, binary data
                 .setDateFormat("MM/dd/yyyy")
-                .setPrettyPrinting()
-                .setLenient() // ???
-
-                .create().toJson(new AllBasicTypes());
-
-        System.out.print(actualJson);
+                .setPrettyPrinting();
     }
 }
-
-/*
-
-               // Property visibility
-                .withNullValues(true)
-                .withPropertyVisibilityStrategy(new PropertyVisibilityStrategy() {
-                    @Override
-                    public boolean isVisible(Field field) {
-                        return false;
-                    }
-
-                    @Override
-                    public boolean isVisible(Method method) {
-                        return false;
-                    }
-                })
-
-                // Property naming and order
-                .withPropertyNamingStrategy(PropertyNamingStrategy.CASE_INSENSITIVE)
-                .withPropertyOrderStrategy(PropertyOrderStrategy.REVERSE)
-
-
-                // Customised de/serializers
-                .withAdapters(new ClassAdapter())
-                .withDeserializers(new CustomDeserializer())
-                .withSerializers(new CustomSerializer())
-
-                // Formats, locals, encoding, binary data
-                .withBinaryDataStrategy(BinaryDataStrategy.BASE_64_URL)
-                .withDateFormat("MM/dd/yyyy", Locale.ENGLISH)
-                .withLocale(Locale.CANADA)
-                .withEncoding("UTF-8")
-                .withStrictIJSON(true)
-                .withFormatting(true);
- */

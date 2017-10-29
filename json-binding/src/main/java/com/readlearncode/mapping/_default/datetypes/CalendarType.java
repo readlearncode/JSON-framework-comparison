@@ -16,10 +16,10 @@ public class CalendarType {
     {
         calendar1 = Calendar.getInstance();
         calendar1.clear();
-        calendar1.set(2017, 12, 25);
+        calendar1.set(2017, 11, 25);
     }
 
-    Calendar calendar2 = new Calendar.Builder().setDate(2017, 12, 25).build();
+    Calendar calendar2 = new Calendar.Builder().setDate(2017, 11, 25).build();
 
     public Calendar getCalendar2() {
         return calendar2;

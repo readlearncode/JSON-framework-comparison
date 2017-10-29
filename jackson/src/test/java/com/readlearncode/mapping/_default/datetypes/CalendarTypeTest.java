@@ -19,12 +19,12 @@ public class CalendarTypeTest {
 
         /*
             {
-              "calendar1": 1516838400000,
-              "calendar2": 1516838400000
+              "calendar1": 1514160000000
+              "calendar2": 1514160000000
             }
          */
 
-        String expectedJson = "{\"calendar1\":1516838400000,\"calendar2\":1516838400000}";
+        String expectedJson = "{\"calendar1\":1514160000000,\"calendar2\":1514160000000}";
         String actualJson = new ObjectMapper().writeValueAsString(new CalendarType());
         assertThat(actualJson).isEqualTo(expectedJson);
     }
