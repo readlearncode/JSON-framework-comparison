@@ -33,7 +33,7 @@ public class RuntimeSampler {
                     }
                 })
                 .excludeFieldsWithModifiers(Modifier.PROTECTED)
-
+                .excludeFieldsWithoutExposeAnnotation()
                 // Property naming and order
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .setFieldNamingStrategy((field) -> field.getName().toLowerCase())

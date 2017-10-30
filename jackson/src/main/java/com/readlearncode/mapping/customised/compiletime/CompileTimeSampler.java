@@ -19,6 +19,7 @@ import java.util.Date;
 @JsonPropertyOrder(value = {"firstName", "title", "author"},alphabetic = true)  // @JsonPropertyOrder(alphabetic = true)
 @JsonInclude(JsonInclude.Include.NON_NULL) // @JsonbNillable
 @JsonIgnoreProperties({"transientField"})
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.PROTECTED_AND_PUBLIC)
 public class CompileTimeSampler {
 
     @JsonIgnore
@@ -32,6 +33,7 @@ public class CompileTimeSampler {
 
     @JsonFormat(pattern = "MM/dd/yyyy", locale = "Locale.ENGLISH")
     private Date date;
+
 
     //    @JsonbNumberFormat("#.00")
     @JsonSerialize(using = PriceJsonSerializer.class)
